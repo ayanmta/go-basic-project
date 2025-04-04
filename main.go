@@ -4,20 +4,22 @@ import (
 	"fmt"
 )
 
-func Contains[T comparable](slice []T, element T) bool {
-
-	for _, v := range slice {
+func Contains[T comparable](slice []T, element T) (bool, int) {
+	for i, v := range slice {
 		if v == element {
-			return true
+			return true, i
 		}
 	}
-	return false
+	return false, -1
 }
 
 func main() {
-	fmt.Println(Contains([]int{1, 2, 3, 4}, 3))
-	fmt.Println(Contains([]string{"ayan", "mehta"}, "mehtaa"))
+	found, index := Contains([]int{1, 2, 3, 4}, 3)
+	fmt.Printf("Found: %v at index: %d\n", found, index)
 
-	fmt.Println(Contains([]string{"ayan", "mehta"}, "mehtaa"))
+	found, index = Contains([]string{"ayan", "mehta"}, "mehta")
+	fmt.Printf("Found: %v at index: %d\n", found, index)
 
+	found, index = Contains([]string{"ayan", "mehta"}, "mehtaa")
+	fmt.Printf("Found: %v at index: %d\n", found, index)
 }
