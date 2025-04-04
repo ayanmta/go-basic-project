@@ -17,4 +17,7 @@ func Contains[T comparable](slice []T, element T) bool {
 func main() {
 	fmt.Println(Contains([]int{1, 2, 3, 4}, 3))
 	fmt.Println(Contains([]string{"ayan", "mehta"}, "mehtaa"))
+
+	fmt.Println(Contains([]string{"ayan", "mehta"}, "mehtaa"))
+
 }
